@@ -5,9 +5,9 @@
 		<title>cytoscape-canvas.js demo</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 		<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
-		<script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>
+		<!--<script src="https://unpkg.com/cytoscape-canvas/dist/cytoscape-canvas.js"></script>-->
 		<!-- for testing with local version-->
-		<!-- <script src="src/cytoscape-canvas.js"></script> -->
+		 <script src="src/cytoscape-canvas.js"></script>
 		<style>
 			#cy {
 				width: 500px;
@@ -64,12 +64,8 @@
 				const ctx = canvas.getContext("2d");
 
 				cy.on("render cyCanvas.resize", (evt) => {
-					bottomLayer.resetTransform(ctx);
 					bottomLayer.clear(ctx);
-					bottomLayer.setTransform(ctx);
-
-					ctx.restore();
-                    bottomLayer.resetTransform(ctx)
+                    bottomLayer.resetTransform(ctx);
                     ctx.fillStyle = '#e0e0e0'
                     cy.nodes().forEach(node => {
                         let pos = node.position()
